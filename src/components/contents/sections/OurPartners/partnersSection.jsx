@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logoOne from "../../image/logo/c1d692ddb15406642e43a33e0fc1c23e.png";
-import logoTwo from "../../image/logo/47c6482ff55474d3e027fa9031665023.png";
-import logoThree from "../../image/logo/b0b1af108d2e2689d1d674880fbe5c77.png";
-import logofour from "../../image/logo/9ab71b9b81bed1d6a8cf79dfc1eb4cce.png";
 import shape1 from "../../image/shapes/Frame 1686560676.png";
 import shape2 from "../../image/shapes/Frame 11686560754.png";
 import AOS from "aos";
@@ -62,20 +58,19 @@ function PartnersSection() {
   return (
     <>
       <section className="relative bg-[#F9FBFC] flex justify-center items-center w-full h-auto sm:h-[342px] overflow-hidden">
-        <div className="static gap-[24px] flex flex-col justify-center items-start w-full max-w-[1280px] px-[15px] py-[50px] at500:px-[72px] my-0 mx-auto">
-          <div className=" grid grid-cols-1 md:grid-cols-4 items-center w-full gap-x-5 gap-y-5">
-            {data.slice(0, postLimit).map((ourPartners) => (
-              <div key={ourPartners.id} className="flex w-full">
+        <div className="static gap-[24px] flex flex-col justify-center items-center w-full max-w-[1280px] px-[15px] py-[50px] at500:px-[72px] my-0 mx-auto">
+          <div className=" grid grid-cols-1 md:grid-cols-5 items-center w-full gap-x-5 gap-y-5">
+            {data.slice(0, postLimit).map((ourPartners, index, array) => (
+              <div key={ourPartners.id} className="w-[200px]">
                 {ourPartners.logo && (
                   <img
-                    className="h-[64px] w-full object-contain"
+                    className={`w-[182px] object-cover h-auto`}
                     src={ourPartners.logo.url}
                     alt=""
                   />
                 )}
               </div>
             ))}
-           
           </div>
 
           <img

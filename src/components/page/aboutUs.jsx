@@ -6,7 +6,7 @@ import SaveUrPotForm from "../form/saveUrPot";
 import TheRun from "../contents/sections/aboutSection/theRun";
 import Race from "../contents/sections/aboutSection/raceInfo";
 import Race2 from "../contents/sections/aboutSection/raceInfo2";
-import Prizes from "../contents/sections/aboutSection/prizes";
+// import Prizes from "../contents/sections/aboutSection/prizes";
 import Rules from "../contents/sections/aboutSection/rules";
 import RouteMap from "../contents/sections/aboutSection/routeMap";
 import ConferenceForm from "../form/conferenceForm";
@@ -47,7 +47,7 @@ function AboutUs() {
         keywords="the run"
       />
       <div className="flex flex-col justify-center items-center relative w-full">
-        <Navbar openOverlay={openOverlay} />
+        <Navbar  />
         <SaveUrPotForm isOpen={isOpen} closeOverlay={closeOverlay} />
         <ConferenceForm
           isOpenConferenceform={isOpenConferenceform}
@@ -56,7 +56,7 @@ function AboutUs() {
         <TheRun />
         <Race openOverlay={openOverlay} />
         <Race2 openOverlay={openOverlay} />
-        <Prizes />
+        {/* <Prizes /> */}
         <Rules />
         <RouteMap id="route-map" /> {/* Pass the ID here */}
         <Footer />

@@ -3,10 +3,9 @@ import axios from "axios";
 import shadowbackground from "../../image/homeImg/PH CITY WOMEN RUN.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ButtoncountDown from "../homeSection/countdown/countprop";
 
-// import Link from "./link";
 
-import Button from "../../Button";
 
 const RunFast = ({ openOverlay }) => {
   const [data, setData] = useState(null);
@@ -18,15 +17,19 @@ const RunFast = ({ openOverlay }) => {
 
   const query = `{
    homepage(where: {id: "cke1ffer402co0156d87fjc5d"}) {
-    id
+      id
     image1 {
       url
     }
     image2 {
       url
     }
+      image3 {
+      url
+    }
     title1
     title2
+    title3
     logo {
       url
     }
@@ -69,7 +72,7 @@ const RunFast = ({ openOverlay }) => {
         <div className="static flex flex-col justify-center items-center w-full max-w-[1280px] px-[15px] py-[90px] sm:px-[72px] my-0 mx-auto">
           <div className="z-10 flex flex-col gap-[40px] items-start w-full">
             <div className="relative flex justify-end items-end w-full h-auto  ">
-              <div className="relative grid grid-cols-1 silver:grid-cols-2 gap-3 w-full h-full overflow-hidden">
+              <div className="relative grid grid-cols-1 silver:grid-cols-2 xl:grid-cols-3 gap-3 w-full h-full overflow-hidden">
                 <div
                   data-aos="fade-down"
                   className=" relative flex flex-col justify-center items-center bg-cover h-[275px] w-full rounded-[16px]"
@@ -91,13 +94,12 @@ const RunFast = ({ openOverlay }) => {
                       {data.title1}
                     </h4>
                     <div className="flex justify-start w-full at500:w-[201px]">
-                      <Button
-                        onClick={openOverlay}
+                      <ButtoncountDown
+                        open={openOverlay}
                         size="play"
-                        className="!bg-[#FFFFFF] !text-[#121F30]"
-                      >
-                        Save Your Spot
-                      </Button>
+                        className="!px-2 !bg-[#FFFFFF] !text-[#121F30] capitalize"
+                        buttonText="Save Your Spot"
+                      />
                     </div>
                   </span>
                 </div>
@@ -122,14 +124,44 @@ const RunFast = ({ openOverlay }) => {
                     <h4 className="text-white text-center w-[200px]">
                       {data.title2}
                     </h4>
-                    <div className="flex justify-start w-full at500:w-[201px]">
-                      <Button
-                        onClick={openOverlay}
+                    <div className=" w-full at500:w-[201px]">
+                      <ButtoncountDown
+                        open={openOverlay}
                         size="play"
-                        className="!bg-[#FFFFFF] !text-[#121F30]"
-                      >
-                        Save Your Spot
-                      </Button>
+                        className="!px-2 !bg-[#FFFFFF] !text-[#121F30] capitalize"
+                        buttonText="Save Your Spot"
+                      />
+                    </div>
+                  </span>
+                </div>
+
+                <div
+                  data-aos="flip-left"
+                  className=" relative flex flex-col justify-center items-center bg-cover  h-[275px] w-full rounded-[16px]"
+                  style={{
+                    backgroundImage: `url(${data.image3.url})`,
+                    backgroundColor: "#000000BF",
+                    backgroundBlendMode: "multiply",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <span className="flex flex-col justify-center items-center gap-[16px] absolute   z-30 ">
+                    <img
+                      className=" h-auto w-[44.64px] object-cover z-0"
+                      src={data.logo.url}
+                      alt="background"
+                    />
+                    <h4 className="text-white text-center w-[200px]">
+                      {data.title3}
+                    </h4>
+                    <div className=" w-full at500:w-[201px]">
+                      <ButtoncountDown
+                        open={openOverlay}
+                        size="play"
+                        className="!px-2 !bg-[#FFFFFF] !text-[#121F30] capitalize"
+                        buttonText="Save Your Spot"
+                      />
                     </div>
                   </span>
                 </div>

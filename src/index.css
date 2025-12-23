@@ -1,13 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;/* Commented imports (assuming these are handled elsewhere) */
 @import '@fontsource/geist-sans';
-
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 body {

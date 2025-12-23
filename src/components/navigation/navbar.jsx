@@ -4,11 +4,11 @@ import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt3 } from "react-icons/hi";
-import Button from "../contents/Button";
 import logo1 from "./logos/TRADEMARKED PH CITY WOMEN PNG 1 3.png";
 import logo2 from "./logos/156a5363dc0856d3728fb5e10c7538f4.png";
 import { Link } from "react-router-dom";
 import "@fontsource/geist-sans";
+import ButtoncountDown from "./countdown/countprop";
 
 const Navbar = ({ openOverlay }) => {
   const { pathname } = useLocation();
@@ -71,7 +71,7 @@ const Navbar = ({ openOverlay }) => {
                 </a>
               </li>
             </ul>
-            <ul className="flex flex-col-reverse smipx:flex-row justify-start items-start space-x-4">
+            <ul className="flex gap-4 flex-row-reverse sm:flex-row justify-start items-start ">
               <li>
                 <a href="mailto:phcitywomenrun@gmail.com">
                   <span className="text-[#EDF5FD] text-[16px] leading-[24px] font-[126]">
@@ -79,24 +79,24 @@ const Navbar = ({ openOverlay }) => {
                   </span>
                 </a>
               </li>
-              <div className="flex flex-col smipx:flex-row justify-start items-start smipx:space-x-4">
-                <li>
+              <li className="flex flex-col smipx:flex-row justify-start items-start smipx:space-x-4">
+                <div>
                   <a href="https://www.tiktok.com/@ph.city.women.run?_t=8qrotYxit9h&_r=1">
                     <FaTiktok
                       size={19}
                       className=" text-[#FFFFFF] hover:text-[#ED3237] transition-all duration-300 ease-in-out"
                     />
                   </a>
-                </li>
-                <li>
+                </div>
+                <div>
                   <a href="https://x.com/phcitywomenrun?t=Ot9NLKru8NzQ6IT4v8raVA&s=08">
                     <FaXTwitter
                       size={19}
                       className=" text-[#FFFFFF] hover:text-[#ED3237] transition-all duration-300 ease-in-out"
                     />
                   </a>
-                </li>
-              </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -269,20 +269,19 @@ const Navbar = ({ openOverlay }) => {
                 </li>
               </Link>
 
-              <li className="py-[10px] w-[159px] pl-[18px]">
-                <Button
+              <li className="text-left py-[10px] w-[169px] pl-[18px]">
+                <ButtoncountDown
+                  open={openOverlay}
                   size="medium"
-                  onClick={openOverlay}
-                  className={`border-[1px] font-Galano border-solid capitalize ${
+                  className={`flex justify-start border-[1px] font-Galano border-solid capitalize ${
                     isHomePage || isTheRunPage
                       ? scrolled
                         ? "bg-[#8D12AB] text-[#FFFFFF]"
                         : "bg-white text-[#320101]"
                       : "bg-[#8D12AB] text-[#FFFFFF]"
                   }`}
-                >
-                  Register
-                </Button>
+                  buttonText="Register"
+                />
               </li>
             </ul>
 
@@ -297,19 +296,19 @@ const Navbar = ({ openOverlay }) => {
                       ? "text-[#8D12AB]"
                       : "text-white"
                     : "text-[#8D12AB]"
-                }  ${toggle ? "hidden " : "block"}`}
+                }  `}
               />
             </div>
 
             {/* Mobile Menu */}
             {toggle && (
               <div
-                className={`mobile-menu  silver:hidden fixed top-0 right-0 flex flex-col items-end justify-start h-screen bg-black bg-opacity-90 text-white  w-full max-w-[300px] transition-transform transform ${
+                className={`mobile-menu  silver:hidden fixed top-0 left-0 flex flex-col items-start justify-start h-screen bg-[#000000dc]  text-white  w-full  transition-transform transform ${
                   toggle ? "translate-x-0" : "-translate-x-full"
                 }`}
               >
-                <div className="flex gap-10 flex-col justify-center items-end w-full mt-[80px]">
-                  <div className="flex justify-between items-center w-full pl-[70px] pr-4">
+                <div className="flex gap-10 flex-col justify-center items-start w-full h-screen bg-black max-w-[300px] ">
+                  <div className="flex justify-between items-end w-full  px-[20px]">
                     <Link to="/">
                       <img
                         src={logo1}
@@ -320,16 +319,10 @@ const Navbar = ({ openOverlay }) => {
                     <AiOutlineClose
                       onClick={closeMenu}
                       size={20}
-                      className={
-                        isHomePage || isTheRunPage
-                          ? scrolled
-                            ? "text-[#8D12AB]"
-                            : "text-white"
-                          : "text-[#8D12AB]"
-                      }
+                      className="text-white cursor-pointer"
                     />
                   </div>
-                  <ul className="flex gap-2 flex-col items-end justify-center pl-[70px] text-lg w-full">
+                  <ul className="flex gap-2 flex-col items-start justify-center text-lg w-full pl-[20px]">
                     <li className="w-full">
                       <Link
                         className="!flex !w-full"
@@ -338,10 +331,21 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD]  border-[1px] border-solid border-[#8D12AB] 
-                          ${activeLink === "/" ? "font-bold" : ""}`}
+                          className={`flex justify-start items-start w-full py-[8px]  border-soild 
+                          ${
+                            activeLink === "/"
+                              ? " border-r-[4px] border-solid border-r-[#8D12AB]"
+                              : ""
+                          }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             home
                           </span>
                         </div>
@@ -355,14 +359,21 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD] border-[1px] border-solid border-[#8D12AB] 
+                          className={`flex justify-start items-start w-full py-[8px]  
                           ${
                             activeLink === "/about"
-                              ? "!font-bold text-[50px]"
+                              ? " border-r-[4px] border-solid border-r-[#8D12AB]"
                               : ""
                           }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/about"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             the run
                           </span>
                         </div>
@@ -376,14 +387,21 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD] border-[1px] border-solid border-[#8D12AB] 
+                          className={`flex justify-start items-start w-full py-[8px] "
                           ${
                             activeLink === "/Conference"
-                              ? "!font-bold text-[50px]"
+                              ? "border-r-[4px] border-solid border-r-[#8D12AB]"
                               : ""
                           }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/Conference"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             Conference
                           </span>
                         </div>
@@ -397,14 +415,21 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD] border-[1px] border-solid border-[#8D12AB] 
+                          className={`flex justify-start items-start w-full py-[8px]  
                           ${
                             activeLink === "/news"
-                              ? "!font-bold text-[50px]"
+                              ? "border-r-[4px] border-solid border-r-[#8D12AB]"
                               : ""
                           }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/news"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             news
                           </span>
                         </div>
@@ -418,14 +443,21 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD] border-[1px] border-solid border-[#8D12AB] 
+                          className={`flex justify-start items-start w-full py-[8px] 
                           ${
                             activeLink === "/post-Events"
-                              ? "!font-bold text-[50px]"
+                              ? " border-r-[4px] border-solid border-r-[#8D12AB]"
                               : ""
                           }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/post-Events"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             post Events
                           </span>
                         </div>
@@ -439,32 +471,34 @@ const Navbar = ({ openOverlay }) => {
                       >
                         <div
                           onClick={closeMenu}
-                          className={`flex justify-end items-start w-full py-[7px] p-[50px] border-soild bg-[#E6EFFD] border-[1px] border-solid border-[#8D12AB] 
+                          className={`flex justify-start items-start w-full py-[8px] border-soild
                           ${
                             activeLink === "/volunteer"
-                              ? "!font-bold text-[50px]"
+                              ? " border-r-[4px] border-solid border-r-[#8D12AB]"
                               : ""
                           }`}
                         >
-                          <span className="text-[#05284C] capitalize">
+                          <span
+                            className={`capitalize text-gray-500
+                          ${
+                            activeLink === "/volunteer"
+                              ? "!font-bold !text-[#FFFFFF]  "
+                              : ""
+                          }`}
+                          >
                             volunteer
                           </span>
                         </div>
                       </Link>
                     </li>
 
-                    <li className="w-full">
-                      <div className="flex w-ful ">
-                        <Button
+                    <li className="text-left w-full">
+                      <div className="flex justify-start w-full pr-[20px] ">
+                        <ButtoncountDown
                           size="medium"
-                          onClick={() => {
-                            openOverlay();
-                            closeMenu();
-                          }}
                           className="mt-8 bg-[#8D12AB] text-[#FFFFFF] capitalize"
-                        >
-                          Register
-                        </Button>
+                          buttonText="Register"
+                        />
                       </div>
                     </li>
                   </ul>

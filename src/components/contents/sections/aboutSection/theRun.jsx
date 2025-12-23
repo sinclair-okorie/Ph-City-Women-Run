@@ -110,7 +110,7 @@ function SpecificGoal() {
               <span className="text-[16px] font-[106] text-center text-[#ffff] leading-[19.84px] max-w-[716px]">
                 {data.subtext3}
               </span>
-              <div className="bg-white flex justify-center items-center rounded-[12px] px-[15px] sm:px-[24px] py-[12px] w-full max-w-[493px]">
+              <div className="bg-white flex justify-center items-center rounded-[12px] px-[15px] sm:px-[24px] py-[12px] w-full max-w-[502px]">
                 <ul className="flex gap-[20px] flex-col sm:flex-row  justify-between w-full">
                   <li className="flex flex-col sm:flex-row  gap-[10px] justify-center items-center">
                     <FaRegCalendar className="text-[#5C176F]" size={24} />
